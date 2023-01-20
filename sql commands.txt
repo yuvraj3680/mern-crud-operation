@@ -1,0 +1,32 @@
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Pass@123';
+flush privileges;
+clint
+open client folder in terminal
+1)npm install
+2)npm install axios
+3)npm start
+
+ open server in terminal
+1)npm i 
+2)npm i body-parser
+3)npm i cors
+4)npm i express
+5)npm i mysql
+6)npm i nodemon
+
+7)npm run devStart
+
+
+sql> use crud
+Database changed
+mysql> create table(
+    -> create table(^C
+mysql> create table studentss(
+    -> studID int primary key auto_increment,
+    -> studname varchar(20),
+    -> facultyname varchar(20),
+    -> moduname varchar(20),
+    -> address varchar (20),
+    -> Email varchar(20));
+
+    desc studentss

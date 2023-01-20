@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkdate() {
+            var billDate=document.getElementById("bdt").value
+            if(billDate!=""){
+                billDate = new Date(billDate);
+            }
+            var shipDate = document.getElementById("sdt").value;
+            if(shipDate!=""){
+                shipDate=new Date(shipDate);
+            }
+
+            var orderId=document.getElementById("oid").value;
+            var custId=document.getElementById("cid").value;
+            var sumAmt=document.getElementById("oid1").value;
+            alert("Hi")
+            if (billDate > shipDate) {
+                
+                document.getElementById("td3").innerHTML = "Billing Date Cannot be greater than Shipping Date";
+                return false;
+
+            }
+            else {
+                
+                
+                if(billDate!=""&&shipDate!=""&&orderId!="" &&custId.trim()!=""&&sumAmt!=""){
+                document.getElementById("mydiv").innerHTML += "<br>" + " Order ID :" + orderId;
+                document.getElementById("mydiv").innerHTML += "<br>" + " Customer Name :" + custId;
+                document.getElementById("mydiv").innerHTML += "<br>" + " Billing Date :" + document.getElementById("bdt").value;
+                document.getElementById("mydiv").innerHTML += "<br>" + " Shipping Date :" + document.getElementById("sdt").value;
+                document.getElementById("mydiv").innerHTML += "<br>" + " Order Total :" + sumAmt;
+
+                document.getElementById("oid").value = "";
+                document.getElementById("cid").value = "";
+                document.getElementById("bdt").value = "";
+                document.getElementById("sdt").value = "";
+                document.getElementById("oid1").value = "";
+
+                document.getElementById("td3").innerHTML = "";
+                }
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <form  style="width:600px; border:2px solid blue; padding-left: 20px;" >
+            <table>
+                <tr>
+                    <br><br>
+                    <td>
+                        <br>
+                        Order Id :
+                    </td>
+                    <td>
+                        <input type="text" name="oid" id="oid" autofocus required>
+                    </td>
+                    <td name="td" id="td1">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        Cust Name :
+                    </td>
+                    <td>
+                        <input type="text" name="cid" id="cid" required minlength="6">
+                    </td>
+                    <td name="td" id="td2">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        Enter Billing Date :
+                    </td>
+                    <td>
+                        <input type="date" name="bdt" id="bdt" required>
+                    </td>
+                    <td name="td" id="td3" style="color: red;">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        Enter Shipping Date :
+                    </td>
+                    <td>
+                        <input type="date" name="sdt" id="sdt" required>
+                    </td>
+                    <td name="td" id="td4">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        Order Total :
+                    </td>
+                    <td>
+                        <input type="text" name="oid1" id="oid1" required>
+                    </td>
+                    <td name="td" id="td5">
+
+                    </td>
+                </tr>
+            </table>
+            <div align="center">
+                <br><br>
+                <button type="button" onclick="checkdate()" name="btn" id="btn"> Display </button>
+                
+            </div>
+            
+            
+        </form>
+        <div id="mydiv">
+
+        </div>
+        <br><br>
+    </div>
+</body>
+
+</html>
+
+
+
+//send data
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function senddata() {
+            var x = parseInt(document.getElementById("lnum").value);
+
+            if(x>0){
+                document.getElementById("mydiv").innerHTML += "<br>" + " Name :" + document.getElementById("nm").value;
+                document.getElementById("mydiv").innerHTML += "<br>" + " Birth Date :" + document.getElementById("bdate").value;
+                document.getElementById("mydiv").innerHTML += "<br>" + " Email Address :" + document.getElementById("email").value;
+
+                var arr=document.getElementsByName("gender");
+                for(var ob of arr){
+                    console.log(ob.checked)
+                    if(ob.checked){
+                        alert("hi");
+                        document.getElementById("mydiv").innerHTML += "<br>" + " Gender :" + ob.value;
+                    }
+                }
+
+                
+                document.getElementById("mydiv").innerHTML += "<br>" + " Lucky Number :" + document.getElementById("lnum").value;
+
+                var arr1=document.getElementsByName("ffood");
+                for(var ob of arr1){
+                    if(ob.checked){
+                        document.getElementById("mydiv").innerHTML += "<br>" + " Favourite Food :" + ob.value;
+                    }
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form style="border:2px solid blue; padding-left: 20px; width: 400px;">
+        <div>
+            <table>
+                <br>
+                <tr>
+                    <td>Name : </td>
+                    <td>
+                        <input type="text" name="nm" id="nm" required autofocus pattern="[a-zA-Z]">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Birth Date :
+                    </td>
+                    <td>
+                        <input type="date" name="bdate" id="bdate">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email Address :
+                    </td>
+                    <td>
+                        <input type="text" name="email" id="email" pattern="@company.com$" required>
+                    </td>
+                    <td id="td1">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Gender :
+                    </td>
+                    <td>
+                        <input type="radio" name="gender" id="male" value="Male"> Male <br>
+                        <input type="radio" name="gender" id="female" value="Female"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Lucky Number :
+                    </td>
+                    <td>
+                        <input type="number" name="lnum" id="lnum" required minlength="4" maxlength="4">
+                    </td>
+                    <td id="td2">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Favourite Foods :
+                    </td>
+                    <td>
+                        <input type="checkbox" name="ffood" id="pizza" value="Pizza">Pizza <br>
+                        <input type="checkbox" name="ffood" id="pasta" value="Pasta">Pasta <br>
+                        <input type="checkbox" name="ffood" id="chinese" value="Chinese">chinese <br>
+                    </td>
+                </tr>
+            </table>
+            <div style="align-items: center;">
+                <button type="button" name="btn" id="btn" onclick="senddata()">Send Data</button><br>
+            </div>
+            <br>
+        </div>
+        <div id="mydiv">
+
+        </div>
+    </form>
+</body>
+
+</html>
